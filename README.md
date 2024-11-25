@@ -48,6 +48,7 @@ The project is fully Dockerized for easy deployment.
 
     - Start the backend API server.
     - Serve the frontend application.
+    - Start the PostgreSQL database.
 
 
 3. Access the application in your browser:
