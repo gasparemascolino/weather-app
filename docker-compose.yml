@@ -1,0 +1,48 @@
+services:
+
+  frontend:
+    container_name: weather_frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    volumes:
+      - ./frontend/src:/app/src
+      - /app/node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    depends_on:
+      - backend
+
+  backend:
+    container_name: weather_backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - POSTGRES_DB=weather
+      - POSTGRES_USER=weather_user
+      - POSTGRES_PASSWORD=weather_pass
+      - OPENWEATHER_API_KEY=${OPENWEATHER_API_KEY}
+    volumes:
+      - ./backend:/app
+    command: >
+      sh -c "uvicorn main:app --host 0.0.0.0 --port 8000"
+
+  db:
+    image: postgres:15-alpine
+    container_name: weather_db
+    environment:
+      POSTGRES_USER: weather_user
+      POSTGRES_PASSWORD: weather_pass
+      POSTGRES_DB: weather
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:

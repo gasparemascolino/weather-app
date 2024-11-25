@@ -1,0 +1,19 @@
+@import '../../app.component.scss';
+
+.city-list {
+  min-height: 200px;
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  margin-top: 5px;
+  width: 100%;
+}
+
+.city-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.city-item:hover {
+  background-color: #f0f0f0;
+}

@@ -1,0 +1,12 @@
+<div class="card font-lato absolute flex flex-col items-center top-64 left-1/2 transform -translate-x-1/2">
+  <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Insert a city</h2>
+  <div class="w-[32rem] flex flex-col items-center">
+    <div>
+      <input [(ngModel)]="searchTerm" (input)="filterCities()" (focus)="onFocus()" (blur)="onBlur()" placeholder="Search city">
+      <div *ngIf="isInputActive && filteredCities.length > 0" class="city-list">
+        <div *ngFor="let city of filteredCities" (click)="selectCity(city)" class="city-item">{{ city }}</div>
+      </div>
+    </div>
+    <button class="w-52 bg-blue-400 text-white font-bold py-2 rounded-lg hover:bg-blue-600 transition duration-300 mt-4" (click)="addCity()">Add</button>
+  </div>
+</div>

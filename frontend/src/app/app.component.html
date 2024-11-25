@@ -1,0 +1,12 @@
+<div class="min-h-screen font-lato flex bg-gradient-to-b from-blue-400 via-sky-300 to-yellow-100 overflow-hidden">
+  <div class="relative w-full h-full">
+    <div id='sun'
+         class="absolute top-16 left-1/2 transform -translate-x-1/2 w-40 h-40 bg-yellow-400 rounded-full shadow-lg"></div>
+    <div class="absolute top-20 w-36 h-20 bg-white rounded-full shadow-lg animate-moveLeftFade"></div>
+    <div class="absolute top-32 left-1/3 w-44 h-24 bg-white rounded-full shadow-lg animate-moveLeftFade"></div>
+    <div class="absolute top-36 left-2/3 w-44 h-24 bg-white rounded-full shadow-lg animate-moveRightFade"></div>
+    <div class="absolute top-20 left-2/3 w-36 h-20 bg-white rounded-full shadow-lg animate-moveLeftFade"></div>
+    <app-add-city (cityAdded)="onCityAdded($event)"></app-add-city>
+    <app-city-list [cityAdded]="cityAdded"></app-city-list>
+  </div>
+</div>

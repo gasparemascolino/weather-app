@@ -1,0 +1,16 @@
+@import '../../app.component.scss';
+
+.city-list-container {
+  max-height: 400px;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.city-list-container::-webkit-scrollbar {
+  display: none;
+}
+
+.city-list-container ul {
+  border-radius: inherit;
+}
